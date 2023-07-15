@@ -9,8 +9,9 @@ import {
   Flex,
   HStack,
 } from "@chakra-ui/react";
+import { ProblemInput } from "@/lib/types";
 
-function TestCase({ testCaseNumber, score, status, input, output, result }) {
+function TestCase({ props }: { props: ProblemInput }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
@@ -21,15 +22,15 @@ function TestCase({ testCaseNumber, score, status, input, output, result }) {
     <Box w="full">
       <Button onClick={handleToggle} w="full" colorScheme="green">
         <Flex justifyContent="space-between" w="full" p={4}>
-          <Box>Test #{testCaseNumber}:</Box>
-          <Box>{status}</Box>
+          <Box>Test #{props.testcase_id}:</Box>
+          <Box>Ongoing</Box>
         </Flex>
       </Button>
       <Collapse in={isExpanded}>
         <Box p={4} bg="gray.100">
           <Text alignSelf={"start"}>Input</Text>
           <Textarea
-            value={input}
+            value={props.input}
             fontSize={18}
             bg="whitealpha.700"
             h="2xs"
@@ -40,7 +41,7 @@ function TestCase({ testCaseNumber, score, status, input, output, result }) {
             <Box w="full">
               <Text alignSelf={"start"}>Output</Text>
               <Textarea
-                value={output}
+                value={props.output}
                 fontSize={18}
                 bg="whitealpha.700"
                 h="2xs"
@@ -51,7 +52,7 @@ function TestCase({ testCaseNumber, score, status, input, output, result }) {
             <Box w="full">
               <Text alignSelf={"start"}>Expected Output</Text>
               <Textarea
-                value={output}
+                value={props.output}
                 bg="whitealpha.700"
                 h="2xs"
                 resize="none"
