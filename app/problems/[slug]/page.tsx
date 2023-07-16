@@ -3,8 +3,6 @@ import { Problem } from "@/lib/types";
 import { prisma } from "@/lib/prisma";
 import PromptMDX from "@/components/PromptMDX";
 import CodeEditor from "@/components/CodeEditor";
-import SyntaxHighlightedTextarea from "@/components/SyntaxHighlightedTextarea";
-import TestCase from "@/components/TestCase";
 
 interface Props {
   params: {
