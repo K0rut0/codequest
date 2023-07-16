@@ -2,6 +2,9 @@ import React from "react";
 import { Problem } from "@/lib/types";
 import { prisma } from "@/lib/prisma";
 import PromptMDX from "@/components/PromptMDX";
+import CodeEditor from "@/components/CodeEditor";
+import SyntaxHighlightedTextarea from "@/components/SyntaxHighlightedTextarea";
+import TestCase from "@/components/TestCase";
 
 interface Props {
   params: {
@@ -27,9 +30,10 @@ const ProblemLayout = async ({ params }: Props) => {
 
   return (
     <>
-      <div className="flex flex-col w-2/3 mx-auto">
+      <div className="flex flex-col w-2/3 mx-auto py-6">
         <h1 className="text-3xl font-bold">{problem.title}</h1>
         <PromptMDX props={{ markdown: problem.prompt }} />
+        <CodeEditor />
       </div>
     </>
   );

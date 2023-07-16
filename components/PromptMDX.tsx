@@ -7,9 +7,8 @@ interface Props {
   };
 }
 
-/** @type {import('rehype-pretty-code').Options} */
 const options = {
-  theme: "nord",
+  theme: "material-theme-darker",
 };
 
 const PreBlock = ({ node, children, ...props }) => {

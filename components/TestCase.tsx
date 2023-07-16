@@ -1,17 +1,7 @@
 "use client";
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  Collapse,
-  Text,
-  Textarea,
-  Flex,
-  HStack,
-} from "@chakra-ui/react";
-import { ProblemInput } from "@/lib/types";
 
-function TestCase({ props }: { props: ProblemInput }) {
+function TestCase({ props }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
@@ -19,50 +9,43 @@ function TestCase({ props }: { props: ProblemInput }) {
   };
 
   return (
-    <Box w="full">
-      <Button onClick={handleToggle} w="full" colorScheme="green">
-        <Flex justifyContent="space-between" w="full" p={4}>
-          <Box>Test #{props.testcase_id}:</Box>
-          <Box>Ongoing</Box>
-        </Flex>
-      </Button>
-      <Collapse in={isExpanded}>
-        <Box p={4} bg="gray.100">
-          <Text alignSelf={"start"}>Input</Text>
-          <Textarea
+    <div className="w-full">
+      <button
+        onClick={handleToggle}
+        className="w-full px-4 py-2 bg-green-500 text-white flex justify-between"
+      >
+        <div>Test #{props.testcase_id}:</div>
+        <div>Ongoing</div>
+      </button>
+      <div className={`collapse ${isExpanded ? "show" : "hidden"}`}>
+        <div className="p-4 bg-gray-100">
+          <div className="self-start">Input</div>
+          <textarea
             value={props.input}
-            fontSize={18}
-            bg="whitealpha.700"
-            h="2xs"
-            resize="none"
-            isReadOnly
+            className="w-full bg-white bg-opacity-70 text-black text-lg h-16 resize-none rounded"
+            readOnly
           />
-          <HStack w="full">
-            <Box w="full">
-              <Text alignSelf={"start"}>Output</Text>
-              <Textarea
+          <div className="flex w-full">
+            <div className="w-1/2">
+              <div className="self-start">Output</div>
+              <textarea
                 value={props.output}
-                fontSize={18}
-                bg="whitealpha.700"
-                h="2xs"
-                resize="none"
-                isReadOnly
+                className="w-full bg-white bg-opacity-70 text-black text-lg h-16 resize-none rounded"
+                readOnly
               />
-            </Box>
-            <Box w="full">
-              <Text alignSelf={"start"}>Expected Output</Text>
-              <Textarea
+            </div>
+            <div className="w-1/2">
+              <div className="self-start">Expected Output</div>
+              <textarea
                 value={props.output}
-                bg="whitealpha.700"
-                h="2xs"
-                resize="none"
-                isReadOnly
+                className="w-full bg-white bg-opacity-70 text-black text-lg h-16 resize-none rounded"
+                readOnly
               />
-            </Box>
-          </HStack>
-        </Box>
-      </Collapse>
-    </Box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
