@@ -25,18 +25,16 @@ const LanguageDropdown = ({
     <div className="relative inline-block">
       <button
         onClick={toggleDropdown}
-        className="py-1 px-3 bg-gray-500 text-white rounded shadow-md hover:bg-red-200 transition duration-300 ease-in-out"
+        className="py-1 px-3 bg-darkGreen rounded shadow-md border border-transparent hover:border-seasalt transition duration-300 ease-in-out"
       >
         {selectedValue}
       </button>
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-40 bg-gray-900 overflow-hidden border border-gray-300 rounded-lg shadow-lg z-10">
+        <div className="absolute right-0 mt-2 w-40 bg-night overflow-hidden border border-gray-300 rounded-lg shadow-lg z-10">
           {options.map((option, index) => (
             <div
               className={`block px-4 py-2 text-white cursor-pointer ${
-                option === selectedValue
-                  ? "bg-gray-500 text-white"
-                  : "hover:bg-gray-600 hover:text-white"
+                option === selectedValue ? "bg-fieldDrab" : "hover:border"
               } transition duration-300 ease-in-out`}
               key={index}
               onClick={() => handleOptionSelect(option)}

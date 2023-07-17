@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, ChangeEvent, KeyboardEvent } from "react";
 import TestCase from "@/components/TestCase";
+import RunCodeButton from "@/components/RunCodeButton";
+import CodeEditor from "@/components/CodeEditor";
 
 const Home: React.FC = () => {
   const [code, setCode] = useState("");
